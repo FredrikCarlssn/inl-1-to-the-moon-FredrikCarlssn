@@ -100,8 +100,7 @@
   transition-duration: 1s;
 }
 .menu-wrap .toggler:checked ~ .menu > div > div {
-  opacity: 1;
-  transition: 0.4s;
+  opacity: 1; 
 }
 
 .menu-wrap .menu {
@@ -151,7 +150,7 @@
 }
 .menu-wrap .menu > div > div > ul > li > a {
   text-decoration: none;
-  transition: color 0.4;
+  transition: color 0.4s;
   color: rgb(0, 0, 0);
   font-size: 3rem;
   text-transform: uppercase;
@@ -291,7 +290,6 @@
   background-image: -webkit-linear-gradient(90deg, #f880b2 7%, #fff 50%, #f880b2 85%);
   background-clip: text;
   -webkit-background-clip: text;
-  text-fill-color: transparent;
   -webkit-text-fill-color: transparent;
   height: auto;
   width: 20rem;
@@ -405,6 +403,113 @@
   .astronaut .heading-box .link:hover span {
     left: 12px;
   }
+}
+/* ---------------- Mobile --------------- */
+@media screen and (max-width: 1024px) {
+  * {
+    font-size: 110%;
+  }
+  .full-height {
+    min-height: 100vh;
+    max-height: fit-content;
+  }
+  h1 {
+    position: relative;
+    font-size: 5rem;
+    max-width: 70%;
+    text-align: center;
+  }
+  .astronaut .heading-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25rem;
+    height: 25rem;
+    background-color: rgba(255, 255, 255, 0.452);
+    position: absolute;
+    top: 10rem;
+    left: 5rem;
+    font-family: "rubik", sans-serif;
+    padding: 0rem;
+  }
+  .heading-box {
+    outline: 5px solid black;
+  }
+  .link {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+  }
+  .box {
+    max-width: none;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-bottom: 6rem;
+  }
+  .box.right{
+    position: relative;
+    margin-top: -15rem;
+  }
+  .special-text {
+    position: relative;
+    left: -30px;
+    top: -200px;
+  }
+  .space, .ventures {
+    font-size: 8rem;
+  }
+  .ventures {
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+  .info {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 10rem;
+  }
+  .cite {
+    margin-bottom: 0;
+  }
+  .major {
+    visibility: hidden;
+  }
+  .quote {
+    visibility: collapse;
+  } 
+  .persistence {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+  .left {
+    margin-top: 200px;
+  }
+  .padding-left {
+    padding-left: 0;
+    padding-top: 0;
+  }
+  .right {
+    margin-top: 0;
+  }
+  .text-width {
+    margin-right: 100px;
+  }
+  .major-link span {
+    visibility: hidden;
+  }
+}
+.text-width{
+  padding-right: 4rem;
+}
+/* End-Quote */
+@media screen and (max-width: 558px) {
+  .cite::after {
+    visibility: hidden;
+  }
+}
+.outline {
+  outline: 5px solid red;
 }
 /* ---------------- Mobile --------------- */
 @media screen and (max-width: 1024px) {
