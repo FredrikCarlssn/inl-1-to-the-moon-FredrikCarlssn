@@ -1,0 +1,620 @@
+@import "normalize.scss";
+/* ---------------- Helpers --------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* ---------------- Layout --------------- */
+.full-height {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.margin-top {
+  margin-top: 5px;
+}
+
+/* ---------------- Menu --------------- */
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  z-index: 1;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  z-index: 2;
+  cursor: pointer;
+  width: 80px;
+  height: 70px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 80px;
+  z-index: 1;
+  height: 70px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .hamburger > div {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .hamburger > div:before,
+.menu-wrap .hamburger > div:after {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 10px;
+  right: 0;
+  width: 100%;
+  height: 8px;
+  z-index: 1;
+  border-radius: 4px;
+  background: inherit;
+  transition-duration: 0.8s;
+}
+.menu-wrap .hamburger > div:after {
+  top: 14px;
+}
+
+.menu-wrap .toggler:checked + .hamburger > div:before {
+  transform: translatex(-10px);
+}
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  transform: translatex(-10px);
+}
+/* ---------------- Menu Hover --------------- */
+
+.menu-wrap .toggler:hover + .hamburger > div:before {
+  transform: translatex(-10px);
+}
+.menu-wrap .toggler:hover + .hamburger > div:after {
+  transform: translatex(-10px);
+}
+/* ---------------- Menu Open --------------- */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+  pointer-events: all;
+}
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: 1s;
+}
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1; 
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  pointer-events: none;
+  font-family: "rubik", sans-serif;
+  font-weight: 700;
+}
+.menu-wrap .menu > div {
+  background: rgba(255, 255, 255, 0.654);
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vh;
+  display: flex;
+  /* z-index: 2; */
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 1rem;
+  max-width: 400px;
+  padding: 40px;
+  position: relative;
+}
+.menu-wrap .menu > div > div > ul > li > a {
+  text-decoration: none;
+  transition: color 0.4s;
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-shadow: 0px 0.5px 0px rgba(0, 0, 0, 0.088),
+    0px 1.6px 0px rgba(0, 0, 0, 0.221), 0px 7px 0px rgba(0, 0, 0, 0.24);
+  position: relative;
+}
+
+.menu-item2:hover::after {
+  position: absolute;
+  background-color: rgb(255, 4, 138);
+  content: "";
+  height: 10px;
+  width: 70%;
+  border-radius: 5px;
+  top: 147px;
+  left: 60px;
+  z-index: 0;
+}
+.menu-item2:hover::before {
+  position: absolute;
+  background-color: rgb(255, 4, 138);
+  content: "";
+  height: 10px;
+  width: 40%;
+  border-radius: 5px;
+  top: 92px;
+  left: 120px;
+  z-index: 0;
+}
+.menu-item1:hover::before {
+  position: absolute;
+  background-color: rgb(255, 4, 138);
+  content: "";
+  height: 10px;
+  width: 65%;
+  border-radius: 5px;
+  top: 92px;
+  left: 67px;
+  z-index: 0;
+}
+
+/* ---------------- Astronaut --------------- */
+.astronaut {
+  background-image: url("../assets/photos/astronaut.jpg");
+  background-size: cover;
+  background-position: 0% 55%;
+}
+
+.astronaut .heading-box {
+  border: 4px solid black;
+  width: 14em;
+  background-color: rgba(255, 255, 255, 0.452);
+  position: absolute;
+  top: 80px;
+  left: 40px;
+  font-family: "rubik", sans-serif;
+  padding: 0.1em;
+}
+
+.astronaut .heading-box .text {
+  text-align: center;
+  text-transform: uppercase;
+}
+/* ---------------- Text-page --------------- */
+.text-page {
+  position: relative;
+  display: block;
+  background-image: url("../assets/photos/stars.jpg");
+  background-size: cover;
+  z-index: 0;
+}
+/* Used photoshop for shadow 
+.shadow {
+    background-color: rgba(0, 0, 0, 0.497);
+    height: 100vh;  
+}
+*/
+.special-text {
+  position: absolute;
+  left: 90px;
+  top: 30px;
+}
+.space {
+  position: absolute;
+  font-family: "rubik", sans-serif;
+  z-index: 1;
+  font-weight: 700;
+  color: #fff;
+  font-size: 5rem;
+  text-shadow: 0px 0.6px 0.6px rgba(0, 0, 0, 0.241),
+    0px 5px 5px rgba(0, 0, 0, 0.499);
+}
+.ventures {
+  position: absolute;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  color: rgba(209, 208, 208, 0.773);
+  font-size: 6.5rem;
+  margin-top: 30px;
+  margin-left: 4px;
+}
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  column-gap: 160px;
+}
+.box {
+  font-family: "rubik", sans-serif;
+  font-weight: 300;
+  color: #fff;
+  max-width: 500px;
+  font-size: 0.9em;
+  line-height: 1.7;
+}
+.rubik-h2 {
+  font-size: 1.8em;
+  margin-bottom: 12px;
+}
+.cite {
+  position: relative;
+  padding-top: 25px;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.5em;
+  max-width: 80%;
+  line-height: 1.3;
+  margin-left: 40px;
+  margin-bottom: 50px;
+  text-shadow: 0px 0px 1.2px rgba(0, 0, 0, 0.636),
+    0px 0px 4px rgba(0, 0, 0, 0.807), 0px 0px 18px rgba(0, 0, 0, 0.21);
+
+}
+.quote {
+  color: #f880b2;
+  background-image: -webkit-linear-gradient(90deg, #f880b2 7%, #fff 50%, #f880b2 85%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  height: auto;
+  width: 20rem;
+  font-size: 2.3rem;
+  opacity: 0.4;
+  font-style: italic;
+  line-height: 1.2;
+}
+.cite::before {
+  content: open-quote;
+  color: rgba(255, 255, 255, 0.795);
+  font-size: 5rem;
+  position: absolute;
+  top: 3px;
+  left: -17px;
+  z-index: -1;
+}
+.cite::after {
+  content: close-quote;
+  color: rgba(255, 255, 255, 0.803);
+  font-size: 5rem;
+  position: absolute;
+  top: 60px;
+  left: 64px;
+  z-index: -1;
+}
+.major-link {
+  color: rgb(255, 4, 138);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.major-arrow {
+  text-decoration: none;
+  color: rgb(255, 4, 138);
+  position: relative;
+  padding-left: 5px;
+  left: 0;
+  transition: left 0.5s;
+}
+.margin-top:hover > span {
+  left: 12px;
+}
+.left {
+  margin-top: 250px;
+}
+.right {
+  margin-top: 7vh;
+}
+.padding-left {
+  padding-left: 20px;
+  padding-top: 30px;
+}
+.major {
+  float: right;
+  /*nshape-outside: polygon(0px -1px, 100px -1px, 99px 151px, 0px 149px, 0px 52px, -84px 52px, -84px -1px); */
+}
+/* ---------------- Footer --------------- */
+.cookies {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  background-color: rgb(6, 1, 40);
+  height: 60px;
+  display: flex;
+  align-items: center;
+  color: rgb(255, 4, 138);
+  padding-left: 30px;
+  font-family: "rubik", sans-serif;
+  font-weight: 500;
+  font-size: 0.8em;
+  text-shadow: rgba(255, 255, 255, 0.6) 1px 0 10px;
+}
+.accept {
+  position: absolute;
+  right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-family: "rubik", sans-serif;
+  font-weight: 700;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  background-color: rgb(0, 0, 84);
+  color: #fff;
+  border: none;
+  text-shadow: rgba(255, 255, 255, 0.6) 1px 0 10px;
+}
+/* ---------------- Desktop --------------- */
+@media screen and (min-width: 1024px) {
+  .astronaut .heading-box {
+    width: 22em;
+    height: 20em;
+    margin-left: 4em;
+  }
+  .astronaut .heading-box .text {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .astronaut .heading-box .link {
+    text-align: right;
+    padding-right: 1.5em;
+    margin-top: -2em;
+  }
+  .astronaut .heading-box .link span {
+    position: relative;
+    left: 0px;
+    transition: left 0.5s;
+  }
+  .astronaut .heading-box .link:hover span {
+    left: 12px;
+  }
+}
+/* ---------------- Mobile --------------- */
+@media screen and (max-width: 1024px) {
+  * {
+    font-size: 110%;
+  }
+  .full-height {
+    min-height: 100vh;
+    max-height: fit-content;
+  }
+  h1 {
+    position: relative;
+    font-size: 5rem;
+    max-width: 70%;
+    text-align: center;
+  }
+  .astronaut .heading-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25rem;
+    height: 25rem;
+    background-color: rgba(255, 255, 255, 0.452);
+    position: absolute;
+    top: 10rem;
+    left: 5rem;
+    font-family: "rubik", sans-serif;
+    padding: 0rem;
+  }
+  .heading-box {
+    outline: 5px solid black;
+  }
+  .link {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+  }
+  .box {
+    max-width: none;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-bottom: 6rem;
+  }
+  .box.right{
+    position: relative;
+    margin-top: -15rem;
+  }
+  .special-text {
+    position: relative;
+    left: -30px;
+    top: -200px;
+  }
+  .space, .ventures {
+    font-size: 8rem;
+  }
+  .ventures {
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+  .info {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 10rem;
+  }
+  .cite {
+    margin-bottom: 0;
+  }
+  .major {
+    visibility: hidden;
+  }
+  .quote {
+    visibility: collapse;
+  } 
+  .persistence {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+  .left {
+    margin-top: 200px;
+  }
+  .padding-left {
+    padding-left: 0;
+    padding-top: 0;
+  }
+  .right {
+    margin-top: 0;
+  }
+  .text-width {
+    margin-right: 100px;
+  }
+  .major-link span {
+    visibility: hidden;
+  }
+}
+.text-width{
+  padding-right: 4rem;
+}
+/* End-Quote */
+@media screen and (max-width: 558px) {
+  .cite::after {
+    visibility: hidden;
+  }
+}
+.outline {
+  outline: 5px solid red;
+}
+/* ---------------- Mobile --------------- */
+@media screen and (max-width: 1024px) {
+  * {
+    font-size: 110%;
+  }
+  .full-height {
+    min-height: 100vh;
+    max-height: fit-content;
+  }
+  h1 {
+    position: relative;
+    font-size: 5rem;
+    max-width: 70%;
+    text-align: center;
+  }
+  .astronaut .heading-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25rem;
+    height: 25rem;
+    background-color: rgba(255, 255, 255, 0.452);
+    position: absolute;
+    top: 10rem;
+    left: 5rem;
+    font-family: "rubik", sans-serif;
+    padding: 0rem;
+  }
+  .heading-box {
+    outline: 5px solid black;
+  }
+  .link {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+  }
+  .box {
+    max-width: none;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-bottom: 6rem;
+  }
+  .box.right{
+    position: relative;
+    margin-top: -15rem;
+  }
+  .special-text {
+    position: relative;
+    left: -30px;
+    top: -200px;
+  }
+  .space, .ventures {
+    font-size: 8rem;
+  }
+  .ventures {
+    margin-top: 5rem;
+    margin-left: 4rem;
+  }
+  .info {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 10rem;
+  }
+  .cite {
+    margin-bottom: 0;
+  }
+  .major {
+    visibility: hidden;
+  }
+  .quote {
+    visibility: collapse;
+  } 
+  .persistence {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+  .left {
+    margin-top: 200px;
+  }
+  .padding-left {
+    padding-left: 0;
+    padding-top: 0;
+  }
+  .right {
+    margin-top: 0;
+  }
+  .text-width {
+    margin-right: 100px;
+  }
+  .major-link span {
+    visibility: hidden;
+  }
+}
+.text-width{
+  padding-right: 4rem;
+}
+/* End-Quote */
+@media screen and (max-width: 558px) {
+  .cite::after {
+    visibility: hidden;
+  }
+}
+.outline {
+  outline: 5px solid red;
+}
